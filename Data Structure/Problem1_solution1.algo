@@ -1,0 +1,29 @@
+ALGORITHM Sum_Of_Distinct_solution1
+VAR
+    set1 : ARRAY_OF INTEGER [5];
+    set2 : ARRAY_OF INTEGER [5];
+    i, j, sum : INTEGER;
+BEGIN
+    Read(set1);
+    Read(set2);
+    sum := 0;
+    IF (set1.length >= set2.length) THEN
+        FOR i FROM 0 TO set1.length - 1 STEP 1  DO
+        FOR j FROM 0 TO set2.length - 1 STEP 1  DO
+        IF (set1[i] <> set2[j]) THEN
+            sum += set1[i];
+        END_IF    
+        END_FOR
+        END_FOR
+    ELSE
+        FOR i FROM 0 TO set2.length - 1 STEP 1  DO
+        FOR j FROM 0 TO set1.length - 1 STEP 1  DO
+        IF (set2[i] <> set1[j]) THEN
+            sum += set2[i];
+        END_IF    
+        END_FOR
+        END_FOR
+    END_IF
+    
+    Write(sum);
+END
